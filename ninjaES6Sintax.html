@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ES6 sintax</title>
+  </head>
+  <body>
+    <h1>Hello ES6!</h1>
+  </body>
+  <script type="text/javascript">
+//Speed and strength should be 3 by default. Health should be 100 by default.
+// The Ninja class should have the following methods
+// sayName() - This should log that Ninja's name to the console.
+// showStats() - This should show the Ninja's Strength and Speed, as well as their health.
+
+    class Ninja {
+      constructor(name, health = 100) {
+        var _strength = 3
+        var _speed = 3
+        this.name = name
+        this.health = health
+        this.get_strength = function() { return _strength; }
+        this.get_speed = function() { return _speed; }
+      }
+      sayName(){
+        return `Ninja Name is  ${this.name}`
+      }
+      showStats(){
+        console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.get_speed()}, Strength: ${this.get_strength()}`);
+      }
+      // drinkSake() - This should add +10 Health to the Ninja
+      drinkSake() {
+        this.health += 10
+        return this
+      }
+    }
+    let ninja = new Ninja("Liseth")
+    console.log(ninja.sayName());
+    ninja.showStats()
+    ninja.drinkSake()
+    ninja.showStats()
+
+    // Extend the Ninja class and create the Sensei class. A Sensei should have 200 Health, 10 speed, and 10 strength by default. In addition, a Sensei should have a new attribute called wisdom, and the default should be 10. Finally, add the speakWisdom() method. speakWisdom() should call the drinkSake() method from the Ninja class, before console.logging a wise message.
+    class Sensei extends Ninja {
+
+
+    }
+
+    //EXPETED OUTPUT
+//     super_sensei.speakWisdom();
+// // -> "What one programmer can do in one month, two programmers can do in two months."
+// super_sensei.showStats();
+// // -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"
+
+
+  </script>
+</html>
