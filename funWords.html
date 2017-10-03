@@ -10,7 +10,7 @@
 			text-align: center;
 			margin-top:20%;
 		}
-		#magic{
+		#magic {
 			color: #777;
 			border-right: 1px solid #777;
 			padding-right: 7px;
@@ -29,10 +29,16 @@
 			character_counter = 0;
 		function updateText()
 		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++] ;
+
+			char = words[word_counter][character_counter++] ;
+			//avoid the cursor to jump to the next word
+			if ( char  === ' ') {
+			 	char = "&nbsp;" // non-breaking space character
+			}
+
+			el.innerHTML = el.innerHTML + char;
 			if(character_counter == words[word_counter].length+1)
 			{
-
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
 
@@ -42,7 +48,7 @@
 					word_counter = 0;
 			}
 		}
-		setInterval(updateText,400);
+		setInterval(updateText,300);
 	</script>
 </body>
 </html>
