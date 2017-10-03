@@ -45,12 +45,42 @@ Ninja.prototype.drinkSake = function () {
   return this;
 };
 
+// Add a new method to your Ninja class called .punch(). This method will take another Ninja instance and subtract 5 Health from the Ninja we passed in.
+
+Ninja.prototype.punch = function (ninja) {
+  if (ninja instanceof Ninja ){
+    ninja.health -= 15
+    console.log( this.name + " was punch by "+ ninja.name + " and lost 15 Health!");
+  } else {
+    console.log("invalid argument");
+  }
+};
+
+//kicks
+Ninja.prototype.kick = function (ninja) {
+  if (ninja instanceof Ninja ){
+    ninja.health -= 15
+    console.log( this.name + " was kicked by "+ ninja.name + " and lost 15 Health!");
+  } else {
+    console.log("invalid argument");
+  }
+
+};
+
+
+
 let my_ninja = new Ninja("Liseth", 50)
+let red_ninja = new Ninja("Alex")
 console.log(my_ninja);
 console.log(my_ninja.health);
 my_ninja.sayName()
 my_ninja.showStats()
 my_ninja.drinkSake()
 console.log(my_ninja.health);
+my_ninja.punch(red_ninja)
+red_ninja.kick(my_ninja)
+my_ninja.punch("red") // This should return wrong argument
+
+
 </script>
 </html>
