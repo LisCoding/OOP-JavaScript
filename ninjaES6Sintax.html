@@ -42,9 +42,24 @@
 
     // Extend the Ninja class and create the Sensei class. A Sensei should have 200 Health, 10 speed, and 10 strength by default. In addition, a Sensei should have a new attribute called wisdom, and the default should be 10. Finally, add the speakWisdom() method. speakWisdom() should call the drinkSake() method from the Ninja class, before console.logging a wise message.
     class Sensei extends Ninja {
-
+      constructor(name, health = 200) {
+        super(name);
+        this.health = health
+        var _strength = 10
+        var _speed = 10
+        this.get_strength = function() { return _strength; }
+        this.get_speed = function() { return _speed; }
+      }
+      speakWisdom(){
+        console.log("What one programmer can do in one month, two programmers can do in two months.");
+        super.drinkSake()
+      }
 
     }
+    let sensei_ninja = new Sensei("Master Splinter")
+    console.log(sensei_ninja);
+    sensei_ninja.speakWisdom()
+    sensei_ninja.showStats()
 
     //EXPETED OUTPUT
 //     super_sensei.speakWisdom();
