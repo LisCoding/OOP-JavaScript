@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ninja I</title>
+</head>
+<body>
+  <h1>Super Ninja</h1>
+
+</body>
+<script type="text/javascript">
+//   Create a new class called Ninja with the following attributes:
+// name
+// health
+// speed (private)
+// strength (private)
+// Speed and strength should be 3 by default. Health should be 100 by default.
+
+// The Ninja class should have the following methods:
+// sayName() - This should log that Ninja's name to the console.
+// showStats() - This should show the Ninja's Strength and Speed, as well as their health.
+// drinkSake() - This should add +10 Health to the Ninja
+
+function Ninja(name, health =100) {
+  this.name = name
+  this.health = health
+  var speed = 3
+  var strength = 3
+  function readSpeed() {
+    return speed;
+  };
+  function readStregth() {
+    return strength;
+  };
+  this.showStats = function () {
+    console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + readSpeed() + ", Strength: " + readStregth());
+  }
+}
+Ninja.prototype.sayName = function () {
+  console.log("My Ninja Name is " + this.name);
+};
+
+Ninja.prototype.drinkSake = function () {
+  this.health += 10;
+  return this;
+};
+
+let my_ninja = new Ninja("Liseth", 50)
+console.log(my_ninja);
+console.log(my_ninja.health);
+my_ninja.sayName()
+my_ninja.showStats()
+my_ninja.drinkSake()
+console.log(my_ninja.health);
+</script>
+</html>
