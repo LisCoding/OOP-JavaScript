@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hoist</title>
+</head>
+<body>
+  <h1>Hoist!!!</h1>
+</body>
+<script type="text/javascript">
+// Even if let and const prevent a lot of the confusing behavior of JavaScript's hoisting, these are ES6 constructs and a huge amount of the world's live JavaScript code is still ES5. Understanding how ES5 hoists var and the rules of scoping are important for every JavaScript developer!
+
+// 1
+console.log(hello); //=> undefined
+var hello = 'world';
+//*** the variable hello is declare at the top as var hello; and therefore it returns undefined
+
+// 2
+var needle = 'haystack';
+test();
+
+function test(){
+  var needle = 'magnet'; //we create a new variable that has  scope only in the function
+  console.log(needle); // => magnet
+}
+
+// Problem 3
+var brendan = 'super cool';
+function print(){
+  brendan = 'only okay';
+  console.log(brendan); // => only okay
+}
+
+console.log(brendan); // => super cool
+
+
+// 4
+var food = 'chicken';
+console.log(food); // => chicken
+eat();
+function eat(){
+  food = 'half-chicken';
+  console.log(food); // => half-chicken
+  var food = "gone";
+}
+
+// 5
+// mean(); //mean is not function ???? need review
+// console.log(food); // => chicken
+// var mean = function() {
+//   food = "chicken";
+//   console.log(food); //=> chicken
+//   var food = "fish";
+//   console.log(food); //=> fish
+// }
+// console.log(food); //=> chicken
+
+// 6
+console.log(genre); //=> undefined
+var genre = "disco";
+rewind();
+function rewind() {
+  genre = "rock";
+  console.log(genre); //"Rock"
+  var genre = "r&b";
+  console.log(genre); //"r&b"
+}
+console.log(genre); //"disco"
+
+// 7
+dojo = "san jose";
+console.log(dojo); //=> san jose
+learn();
+function learn() {
+  dojo = "seattle";
+  console.log(dojo); //=> seattle
+  var dojo = "burbank";
+  console.log(dojo); //=> burbank
+}
+console.log(dojo); //= San jose ????????? WHY 
+
+</script>
+</html>
